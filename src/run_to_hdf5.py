@@ -36,7 +36,7 @@ def ObtainHLData(args):
             continue
         dihedrals.append(dih*10.0)
 
-    hl_data = Setup_Output_for_DeePMD(energies, coords, forces, elements)
+    #hl_data = Setup_Output_for_DeePMD(energies, coords, forces, elements)
     print("HL Output data prepared for DeePMD:", hl_data)
 
     #profile_name
