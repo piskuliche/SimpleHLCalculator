@@ -37,7 +37,7 @@ def ObtainHLData(args):
         dihedrals.append(dih*10.0)
 
     #hl_data = Setup_Output_for_DeePMD(energies, coords, forces, elements)
-    print("HL Output data prepared for DeePMD:", hl_data)
+    #print("HL Output data prepared for DeePMD:", hl_data)
 
     #profile_name
     match = re.search(r'(\d+_\d+_\d+_\d+)\.xyz', args.initxyz)
