@@ -44,7 +44,7 @@ def ObtainHLData(args):
     profile_name = match.group(1) if match else "profile"
     Write_Dihedral_Profile(dihedrals, energies, f"spice_{profile_name}.dat")
     
-    return hl_data
+    return
 
 def Write_Dihedral_Profile(dihedrals, energies, filename):
     """ Write dihedral profile to a file.
