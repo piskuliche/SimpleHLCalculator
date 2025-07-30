@@ -60,7 +60,6 @@ def Write_Dihedral_Profile(dihedrals, energies, filename):
     
     """
     ev_to_kcal = 23.0605  # Conversion factor from eV to kcal/mol
-    energies = [energy * ev_to_kcal for energy in energies]  # Convert energies
     with open(filename, 'w') as f:
         for dih, energy in zip(dihedrals, energies):
             f.write(f"{dih} {energy}\n")
