@@ -26,11 +26,15 @@ def ObtainHLData(args):
     dih_ints = np.arange(36)
     dihedrals, energies, coords, forces = [], [], [], []
     for dih in dih_ints:
+        try:
+            elements, positions = Load_Positions(f"pos_{dih}_{args.initxyz}.dat")
+            energies.append(Load_Energy(f"ener_{dih}_{args.initxyz}.dat"))
+            coords.append(positions)
+            forces.append(Load_Forces(f"forces_{dih}_{args.initxyz}.dat"))
+        except:
+            print(f"Skipping dihedral {dih} due to missing files.")
+            continue
         dihedrals.append(dih*10.0)
-        elements, positions = Load_Positions(f"pos_{dih}_{args.initxyz}.dat")
-        energies.append(Load_Energy(f"ener_{dih}_{args.initxyz}.dat"))
-        coords.append(positions)
-        forces.append(Load_Forces(f"forces_{dih}_{args.initxyz}.dat"))
 
     hl_data = Setup_Output_for_DeePMD(energies, coords, forces, elements)
     print("HL Output data prepared for DeePMD:", hl_data)
