@@ -139,6 +139,11 @@ def SingleCalc(args, calculator, molecules):
         raise ValueError(f"Structure index {args.structure} is out of bounds for the number of structures ({len(molecules)}).")
     if args.structure == -1:
         raise ValueError("Please specify a valid structure index to process.")
+    
+    # check if the calculation has already been done
+    if os.path.exists(f"ener_{args.structure}_{args.input}.dat"):
+        print(f"Calculation for structure {args.structure} already done. Skipping.")
+        return
 
     mol = molecules[args.structure]
     mol.calc = calculator
