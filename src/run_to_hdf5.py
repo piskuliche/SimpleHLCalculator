@@ -62,7 +62,7 @@ def Write_Dihedral_Profile(dihedrals, energies, filename):
     ev_to_kcal = 23.0605  # Conversion factor from eV to kcal/mol
     with open(filename, 'w') as f:
         for dih, energy in zip(dihedrals, energies):
-            f.write(f"{dih} {energy}\n")
+            f.write(f"{dih/10} {energy}\n")
 
 def Obtain_XTB_LL(args, hl_data):
     """ Take HL structures, and then run single point calculations on them."""
