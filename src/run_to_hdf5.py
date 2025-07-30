@@ -40,7 +40,7 @@ def ObtainHLData(args):
     #print("HL Output data prepared for DeePMD:", hl_data)
 
     #profile_name
-    match = re.search(r'(\d+_\d+_\d+_\d+)\.xyz', args.initxyz)
+    match = re.search(r'(\d+-\d+-\d+-\d+)\.xyz', args.initxyz)
     profile_name = match.group(1) if match else "profile"
     Write_Dihedral_Profile(dihedrals, energies, f"spice_{profile_name}.dat")
     
